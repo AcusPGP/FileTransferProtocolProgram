@@ -64,7 +64,7 @@ public class ClientCommand {
                 //Exit stage
                 case "3" -> {
                     result = "exit";
-                    dosClient.writeUTF("4");
+                    dosClient.writeUTF("3");
                     receiveFromServer = disClient.readUTF();
                     System.out.println(receiveFromServer);
                 }
