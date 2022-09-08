@@ -1,6 +1,5 @@
 package ftp.client.operation;
 
-import ftp.server.operation.ServerDownload;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.DataInputStream;
@@ -8,8 +7,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Slf4j
 public class ClientCommand {
@@ -35,7 +32,6 @@ public class ClientCommand {
      * Stage 3: Send command to the server
      */
     public String sendCommand(String command) {
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
         String result = "run";
         String receiveFromServer;
         command = command.toLowerCase().trim();
