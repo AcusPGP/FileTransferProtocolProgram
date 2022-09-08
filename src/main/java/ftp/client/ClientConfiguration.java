@@ -27,9 +27,10 @@ public class ClientConfiguration {
         getValuesFromConfig();
         checkBeforeClientConnection();
         String inputCommand = sc.nextLine().trim();
+        checkFolderExist(configValues[3]);
         if (inputCommand.equals("")) {
             //Checking stage
-            if (!checkConfigurationValues(configValues) || !checkFolderExist(configValues[3]) || !checkPort(configValues)) {
+            if (!checkConfigurationValues(configValues) || !checkPort(configValues)) {
                 log.info("Please check the client's configuration in the config.properties file again.");
                 System.exit(0);
             }
@@ -84,13 +85,11 @@ public class ClientConfiguration {
         return true;
     }
 
-    private static boolean checkFolderExist(String rootDownload) {
+    private static void checkFolderExist(String rootDownload) {
         File file = new File(rootDownload);
-        if (!file.exists()) {
-            log.info("The 'download' file is not existed. PLease create it in the folder 'client' and check the configuration again.");
-            return false;
+        if (file.mkdir()) {
+            System.out.println("Folder created: " + file.getName());
         }
-        return true;
     }
 
     private static boolean checkPort(String[] args) {
