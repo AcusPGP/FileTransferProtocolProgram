@@ -111,12 +111,12 @@
                   <Font name="Apple SD Gothic Neo Regular" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="47.0" layoutY="453.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" style="-fx-border-color: black;" text="Connect" textFill="RED">
+            <Button layoutX="44.0" layoutY="452.0" mnemonicParsing="false" onAction="#onConnectButtonClick" prefHeight="30.0" prefWidth="120.0" style="-fx-border-color: black;" text="Connect" textFill="RED">
                <font>
                   <Font name="Apple SD Gothic Neo Regular" size="15.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="423.0" prefHeight="30.0" prefWidth="195.0" text="Connect to Server" textFill="BLUE">
+            <Label alignment="CENTER" layoutX="5.0" layoutY="423.0" prefHeight="30.0" prefWidth="195.0" text="Connect to Server" textFill="BLUE">
                <font>
                   <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                </font>
@@ -148,8 +148,8 @@
                   <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                </font>
             </Label>
-            <ProgressBar layoutX="221.0" layoutY="468.0" prefHeight="20.0" prefWidth="250.0" progress="0.0" />
-            <Label alignment="CENTER" layoutX="271.0" layoutY="434.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: black;" text="Disconnect....." textFill="WHITE">
+            <ProgressBar fx:id="connectProgress" layoutX="221.0" layoutY="468.0" prefHeight="20.0" prefWidth="250.0" progress="0.0" />
+            <Label fx:id="connectStatus" alignment="CENTER" layoutX="271.0" layoutY="434.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: black;" text="Disconnect....." textFill="WHITE">
                <font>
                   <Font name="Apple SD Gothic Neo Regular" size="15.0" />
                </font>

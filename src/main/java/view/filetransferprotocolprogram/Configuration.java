@@ -10,8 +10,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,10 @@ public class Configuration implements Initializable {
     private Label portData;
     @FXML
     private Label clientIPAddress;
+    @FXML
+    private Label connectStatus;
+    @FXML
+    private ProgressBar connectProgress;
     private String[] configValues;
 
     @Override
@@ -98,7 +103,7 @@ public class Configuration implements Initializable {
     //3. User click on the "Refresh" button
     public void onRefreshButtonClick(ActionEvent event) {
         if (alreadyUpToDate()) {
-            Alert upToDateAlert = new Alert(Alert.AlertType.WARNING, " Similar configuration", ButtonType.OK);
+            Alert upToDateAlert = new Alert(Alert.AlertType.WARNING, " Similar Configuration", ButtonType.OK);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             upToDateAlert.setTitle("Latest Configuration Alert");
             upToDateAlert.setContentText("The configuration is already similar. Check again and press connect button to move on.");
@@ -154,5 +159,47 @@ public class Configuration implements Initializable {
             log.info(e.getMessage());
             log.info("<onMoreInfoButtonClick>");
         }
+    }
+
+    //Connect Button
+    public void onConnectButtonClick(ActionEvent event) throws IOException {
+        int counter = 0;
+        while (counter <= 100) {
+            connectProgress.setProgress(counter);
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                log.info(e.getMessage());
+                log.info("<onConnectButtonClick>");
+            }
+            if (counter == 90) {
+                connectStatus.setText("Connecting.....");
+                connectStatus.setTextFill(Color.YELLOW);
+            }
+            counter += 5;
+        }
+        Alert changeToConnectView = new Alert(Alert.AlertType.CONFIRMATION, "Change View Stage", ButtonType.OK, ButtonType.CANCEL);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        changeToConnectView.setTitle("Change View Stage");
+        changeToConnectView.setContentText("Connect to Server successfully. Please press OK button to go to the next stage.");
+        changeToConnectView.initModality(Modality.APPLICATION_MODAL);
+        changeToConnectView.initOwner(stage);
+        changeToConnectView.showAndWait();
+
+        if (changeToConnectView.getResult() == ButtonType.OK) {
+            commandStage(event);
+        } else {
+            connectProgress.setProgress(0);
+            connectStatus.setText("Disconnecting.....");
+            connectStatus.setTextFill(Color.WHITE);
+        }
+    }
+
+    public void commandStage(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(Configuration.class.getResource("command-view.fxml"));
+        Parent addParent = loader.load();
+        Scene addScene = new Scene(addParent);
+        stage.setScene(addScene);
     }
 }
