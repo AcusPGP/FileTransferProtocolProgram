@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -50,6 +52,7 @@ public class Command implements Initializable {
     TableColumn<ListFile, String> fileNameColumn;
     @FXML
     TextField nameOfFile;
+    ProgressBar downloadBar;
     String receiveFromServer;
     String[] listFile;
     String fileName;
@@ -147,6 +150,7 @@ public class Command implements Initializable {
                     while ((count = disClient.read(buffer)) >= 0) {
                         fos.write(buffer, 0, count);
                     }
+                    progressBar();
                     System.out.println("Downloading successfully.");
                     dosClient.close();
                     dosClient.close();
@@ -169,6 +173,15 @@ public class Command implements Initializable {
 
             }
         }
+    }
+
+    public void choosenRow() {
+        listFileTableView.setOnMouseClicked(mouseEvent -> {
+            String temp = String.valueOf(listFileTableView.getSelectionModel().getSelectedItem());
+            System.out.println(temp);
+            nameOfFile.setText(temp.trim());
+        });
+
     }
 
     public void afterDownloadStage() {
@@ -203,6 +216,19 @@ public class Command implements Initializable {
             numberColumn.setCellValueFactory(new PropertyValueFactory<>("number"));
             fileNameColumn.setCellValueFactory(new PropertyValueFactory<>("fileName"));
             listFileTableView.setItems(dataList);
+        }
+    }
+
+    public void progressBar() {
+        double count = 0;
+        while (count <= 100.0) {
+            downloadBar.setProgress(count);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                log.info(e.getMessage());
+            }
+            count += 1;
         }
     }
 

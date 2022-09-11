@@ -19,7 +19,7 @@
     <children>
         <Pane prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: c4e0e5 c4e0e5;">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BEIGE" height="150.0" layoutX="7.0" layoutY="38.0" stroke="BEIGE" strokeType="INSIDE" width="150.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BEIGE" height="150.0" layoutX="7.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#19547b" height="3.0" layoutX="-5.0" layoutY="27.0" stroke="#19547b" strokeType="INSIDE" width="860.0" />
             <Label alignment="CENTER" layoutX="390.0" layoutY="-1.0" prefHeight="30.0" prefWidth="70.0" text="Services" textFill="RED">
                <font>
@@ -56,14 +56,14 @@
                         <Font name="Apple SD Gothic Neo Regular" size="15.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="listFileTableView" layoutX="91.0" layoutY="93.0" prefHeight="300.0" prefWidth="500.0">
+                  <TableView fx:id="listFileTableView" layoutX="91.0" layoutY="93.0" onMouseClicked="#choosenRow" prefHeight="300.0" prefWidth="500.0">
                     <columns>
                       <TableColumn fx:id="numberColumn" prefWidth="50.0" text="Number" />
                       <TableColumn fx:id="fileNameColumn" prefWidth="450.0" text="File Name" />
                     </columns>
                   </TableView>
                   <Button layoutX="91.0" layoutY="409.0" mnemonicParsing="false" onAction="#onStartDownloadingButtonClick" prefHeight="30.0" prefWidth="120.0" text="Start downloading" textFill="BLUE" />
-                  <ProgressBar layoutX="220.0" layoutY="410.0" maxHeight="30.0" prefHeight="30.0" prefWidth="370.0" progress="0.0" />
+                  <ProgressBar layoutX="220.0" layoutY="409.0" prefHeight="30.0" prefWidth="371.0" />
                </children>
             </Pane>
          </children></Pane>

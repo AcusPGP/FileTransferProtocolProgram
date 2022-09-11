@@ -24,4 +24,8 @@ public class ListFile {
     public String getFileName() {
         return fileName;
     }
+
+    public String toString() {
+        return fileName;
+    }
 }

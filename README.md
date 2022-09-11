@@ -63,8 +63,11 @@
 ### STEP 3: Run the program
 Click the file path below:
 
+>The Server need initiating first then you can run the Client or Application.
+
 - To run **Server**, go to: [src/main/java/ftp/server/ServerConfiguration.java](src/main/java/ftp/server/ServerConfiguration.java)
 - To run **Client**, go to: [src/main/java/ftp/client/ClientConfiguration.java](src/main/java/ftp/client/ClientConfiguration.java)
+- To run **Application** go to: [src/main/java/view/filetransferprotocolprogram/Application.java](src/main/java/view/filetransferprotocolprogram/Application.java)
 
 -----------------------------------
 <ins>
@@ -90,6 +93,21 @@ client to choose next command/action.
 #### Detail picture:
 
 ![](src/main/resources/readme.photo/img3.png)
+
+-----------------------------------
+<ins>
+
+### JAVAFX GUI IMAGES
+
+</ins>
+
+- Make sure the Server run first then initiate the Application.
+
+![](src/main/resources/readme.photo/img7.png)
+
+![](src/main/resources/readme.photo/img8.png)
+
+
 
 -----------------------------------
 <ins>

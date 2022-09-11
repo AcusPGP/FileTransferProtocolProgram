@@ -47,6 +47,7 @@ public class Configuration implements Initializable {
         portCommand.setText(configValues[0]);
         portData.setText(configValues[1]);
         clientIPAddress.setText(configValues[2]);
+        checkFolderExist(configValues[3]);
     }
 
     /**
@@ -178,11 +179,20 @@ public class Configuration implements Initializable {
         }
     }
 
+    //Change scene to command view
     public void commandStage(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(Configuration.class.getResource("command-view.fxml"));
         Parent addParent = loader.load();
         Scene addScene = new Scene(addParent);
         stage.setScene(addScene);
+    }
+
+    //Check if the "download" folder is exist
+    private static void checkFolderExist(String rootDownload) {
+        File file = new File(rootDownload);
+        if (file.mkdir()) {
+            System.out.println("Folder created: " + file.getName());
+        }
     }
 }
