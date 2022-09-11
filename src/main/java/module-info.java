@@ -9,6 +9,6 @@ module view.filetransferprotocolprogram {
     requires org.slf4j;
     requires java.desktop;
 
-    opens view.filetransferprotocolprogram to javafx.fxml;
+    opens view.filetransferprotocolprogram to javafx.fxml, javafx.base;
     exports view.filetransferprotocolprogram;
 }

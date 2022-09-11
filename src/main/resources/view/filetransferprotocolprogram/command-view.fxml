@@ -1,10 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.filetransferprotocolprogram.Command"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox prefHeight="510.0" prefWidth="860.0" spacing="20.0" style="-fx-background-color: #19547b #19547b;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.filetransferprotocolprogram.Command">
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+    <children>
+        <Pane prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: c4e0e5 c4e0e5;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BEIGE" height="150.0" layoutX="7.0" layoutY="38.0" stroke="BEIGE" strokeType="INSIDE" width="150.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#19547b" height="3.0" layoutX="-5.0" layoutY="27.0" stroke="#19547b" strokeType="INSIDE" width="860.0" />
+            <Label alignment="CENTER" layoutX="390.0" layoutY="-1.0" prefHeight="30.0" prefWidth="70.0" text="Services" textFill="RED">
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="22.0" layoutY="91.0" mnemonicParsing="false" onAction="#onDownloadButtonClick" prefHeight="30.0" prefWidth="120.0" text="Download" textFill="BLUE" />
+            <Button fx:id="disconnectButton" layoutX="22.0" layoutY="138.0" mnemonicParsing="false" onAction="#onDisconnectButtonClick" prefHeight="30.0" prefWidth="120.0" text="Disconnect" textFill="RED" />
+            <Label alignment="CENTER" layoutX="47.0" layoutY="53.0" prefHeight="30.0" prefWidth="70.0" text="Services" textFill="RED" underline="true">
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+               </font>
+            </Label>
+            <Pane fx:id="downloadPane" layoutX="167.0" layoutY="38.0" prefHeight="453.0" prefWidth="674.0" style="-fx-background-color: #f5f5dc#f5f5dc; -fx-border-color: black;">
+               <children>
+                  <Label alignment="CENTER" layoutY="5.0" prefHeight="30.0" prefWidth="280.0" text="Enter the file name you want to download:">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nameOfFile" layoutX="280.0" layoutY="6.0" prefHeight="26.0" prefWidth="220.0" promptText="Enter the full name" />
+                  <Label layoutX="507.0" layoutY="5.0" prefHeight="30.0" prefWidth="167.0" text=". Or you can double click">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="32.0" prefHeight="30.0" prefWidth="400.0" text="to the table list below. Then press &quot;Start downloading&quot; button.">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="299.0" layoutY="63.0" prefHeight="30.0" prefWidth="70.0" text="List Files" textFill="RED" underline="true">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="15.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="listFileTableView" layoutX="91.0" layoutY="93.0" prefHeight="300.0" prefWidth="500.0">
+                    <columns>
+                      <TableColumn fx:id="numberColumn" prefWidth="50.0" text="Number" />
+                      <TableColumn fx:id="fileNameColumn" prefWidth="450.0" text="File Name" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="91.0" layoutY="409.0" mnemonicParsing="false" onAction="#onStartDownloadingButtonClick" prefHeight="30.0" prefWidth="120.0" text="Start downloading" textFill="BLUE" />
+                  <ProgressBar layoutX="220.0" layoutY="410.0" maxHeight="30.0" prefHeight="30.0" prefWidth="370.0" progress="0.0" />
+               </children>
+            </Pane>
+         </children></Pane>
+    </children>
+    <opaqueInsets>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </opaqueInsets>
+</VBox>

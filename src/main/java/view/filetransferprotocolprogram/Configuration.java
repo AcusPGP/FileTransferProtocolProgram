@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -36,8 +35,6 @@ public class Configuration implements Initializable {
     private Label clientIPAddress;
     @FXML
     private Label connectStatus;
-    @FXML
-    private ProgressBar connectProgress;
     private String[] configValues;
 
     @Override
@@ -163,21 +160,8 @@ public class Configuration implements Initializable {
 
     //Connect Button
     public void onConnectButtonClick(ActionEvent event) throws IOException {
-        int counter = 0;
-        while (counter <= 100) {
-            connectProgress.setProgress(counter);
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                log.info(e.getMessage());
-                log.info("<onConnectButtonClick>");
-            }
-            if (counter == 90) {
-                connectStatus.setText("Connecting.....");
-                connectStatus.setTextFill(Color.YELLOW);
-            }
-            counter += 5;
-        }
+        connectStatus.setText("Connecting.....");
+        connectStatus.setTextFill(Color.YELLOW);
         Alert changeToConnectView = new Alert(Alert.AlertType.CONFIRMATION, "Change View Stage", ButtonType.OK, ButtonType.CANCEL);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         changeToConnectView.setTitle("Change View Stage");
@@ -189,7 +173,6 @@ public class Configuration implements Initializable {
         if (changeToConnectView.getResult() == ButtonType.OK) {
             commandStage(event);
         } else {
-            connectProgress.setProgress(0);
             connectStatus.setText("Disconnecting.....");
             connectStatus.setTextFill(Color.WHITE);
         }
