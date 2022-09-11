@@ -42,7 +42,6 @@ public class ClientCommand {
                 //Download stage
                 case "1" -> {
                     System.out.println("----------------------------List files on the server---------------------------");
-
                     dosClient.writeUTF("1");
                     receiveFromServer = disClient.readUTF();
                     listFile = receiveFromServer.split(" ");

@@ -1,7 +1,7 @@
 # File Transfer Protocol Program (Client & Server)
 
 - This is a simple program of presenting a menu of server's services based on client's command.
-- Project link (GitHub) : https://github.com/AcusPGP/FileTransferProtocol
+- Project link (GitHub) : https://github.com/AcusPGP/FileTransferProtocolProgram
 - Project's author: Pham Gia Phuc - "Acus" (Personal profile: https://github.com/AcusPGP)
 
 -----------------------------------
@@ -11,24 +11,24 @@
 
 </ins>
 
-### STEP 1: Before running program, you make sure your computer already installed tools below:
+### STEP 1: Before running thet program, you make sure your computer already installed tools below
 
-- JDK version 18.0.2 or later.
-- Maven version 4.0.0 or later.
+- JDK version 18.0.2 or later
+- Maven version 4.0.0 or later
 - JFX version 18.0.2 or later
 
 > I recommend JDK and JFX version must be match in order to have full experience to run the program successfully.
 
-- Check the pom.xml file if the third library "org.projectlombok" is installed in the file
-  (If the library is not installed, check the 'Install third library guide' section).
+- Check the pom.xml file if the third library "Lombok" is installed in the file
+  (If the library is not installed, check the "Install third library guide" section).
 
-### STEP 2: Program is configured as follows:
+### STEP 2: Program is configured as follows
 
 > You can check and change the configuration in the config.properties file: [src/main/resources/config.properties](src/main/resources/config.properties)
 
 ![](src/main/resources/readme.photo/img1.png)
 
-> Please make sure the agrument values in the configuration is correct.
+> Please make sure the values in the configuration is correct.
 
 **1. Server's configuration:**
 
@@ -63,8 +63,11 @@
 ### STEP 3: Run the program
 Click the file path below:
 
+>The Server need initiating first then you can run the Client or Application.
+
 - To run **Server**, go to: [src/main/java/ftp/server/ServerConfiguration.java](src/main/java/ftp/server/ServerConfiguration.java)
 - To run **Client**, go to: [src/main/java/ftp/client/ClientConfiguration.java](src/main/java/ftp/client/ClientConfiguration.java)
+- To run **Application** go to: [src/main/java/view/filetransferprotocolprogram/Application.java](src/main/java/view/filetransferprotocolprogram/Application.java)
 
 -----------------------------------
 <ins>
@@ -90,6 +93,21 @@ client to choose next command/action.
 #### Detail picture:
 
 ![](src/main/resources/readme.photo/img3.png)
+
+-----------------------------------
+<ins>
+
+### JAVAFX GUI IMAGES
+
+</ins>
+
+- Make sure the Server run first then initiate the Application.
+
+![](src/main/resources/readme.photo/img7.png)
+
+![](src/main/resources/readme.photo/img8.png)
+
+
 
 -----------------------------------
 <ins>
