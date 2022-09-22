@@ -39,8 +39,8 @@
 
 **2. Client's configuration:**
 
-- First value - **port command** (receiving client's command): 9000
-- Second value - **port data** (transferring data to client's storage): 9001
+- First value - **port command** (sending the client's command to server): 9000
+- Second value - **port data** (receiving data from server): 9001
 - Third value - **server IP address**: your IP address or 127.0.0.1 (localhost)
 - Fourth value - **directory path for 'download' folder** - all the download files will be stored in here: [download](download)
 
