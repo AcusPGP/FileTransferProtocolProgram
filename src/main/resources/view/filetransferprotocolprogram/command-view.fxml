@@ -63,7 +63,7 @@
                     </columns>
                   </TableView>
                   <Button layoutX="91.0" layoutY="409.0" mnemonicParsing="false" onAction="#onStartDownloadingButtonClick" prefHeight="30.0" prefWidth="120.0" text="Start downloading" textFill="BLUE" />
-                  <ProgressBar layoutX="220.0" layoutY="409.0" prefHeight="30.0" prefWidth="371.0" />
+                  <ProgressBar fx:id="downloadBar" layoutX="220.0" layoutY="409.0" prefHeight="30.0" prefWidth="371.0" />
                </children>
             </Pane>
          </children></Pane>
