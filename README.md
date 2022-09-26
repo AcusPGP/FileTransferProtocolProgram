@@ -11,7 +11,7 @@
 
 </ins>
 
-### STEP 1: Before running thet program, you make sure your computer already installed tools below
+### STEP 1: Before running the program, you make sure your computer already installed tools below
 
 - JDK version 18.0.2 or later
 - Maven version 4.0.0 or later
